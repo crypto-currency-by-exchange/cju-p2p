@@ -7,7 +7,7 @@ from src import db
 
 
 def check_node_exist(ip: str, port: str) -> Union[bool, MiningNode]:
-    node = MiningNode.query.filter(MiningNode.ip, MiningNode.port).first()
+    node = MiningNode.query.filter(MiningNode.ip == ip, MiningNode.port == port).first()
 
     if not node:
         return False
